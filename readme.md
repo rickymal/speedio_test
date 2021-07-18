@@ -11,7 +11,7 @@ A instalação desta ferramenta assim como instruções pode ser feita aqui: [Si
 
 ### Instalando e utilizando
 
-- crie uma pasta para o download do projeto
+- crie uma pasta para o download do projeto por uma questão de organização (opcional)
 - após a pasta ter sido criada, com o prompt de comando ou terminal na pasta, digite o seguinte comando
 ```bash
 git clone https://github.com/rickymal/speedio_test.git
