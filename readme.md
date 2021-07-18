@@ -4,7 +4,7 @@
 
 ### Pré-requisito
 - Para o uso da ferramenta, é preferível ter instalado em seu computador e configurado na variável de ambiente a plataforma Anaconda ou miniconda.
-A instalação desta ferramenta assim como instruções pode ser feita aqui: [Site oficial do anaconda](https://www.anaconda.com/products/individual). Caso não queira instalar o Anaconda, apenas instale o Python e as seguintes bibliotecas: pymongo, pandas, requests, openpyxl. A versão Python testada foi a 3.9.5
+A instalação desta ferramenta assim como instruções pode ser feita aqui: [Site oficial do anaconda](https://www.anaconda.com/products/individual). Caso não queira instalar o Anaconda, apenas instale o Python e as seguintes bibliotecas: pymongo, pandas, openpyxl. A versão Python testada foi a 3.9.5
 
 - Também é necessário ter o git instalado em teu computador.
 
@@ -20,6 +20,9 @@ git clone https://github.com/rickymal/speedio_test.git
 ```bash
 cd speedio_test
 ```
+- Crie uma pasta com o nome 'data' e insira os dados da receita federal (descompactados)
+- 
+#### Apenas para os usuários do Anaconda e miniconda
 - Será necessário criar o ambiente. Digite o seguinte comando para ambiente windows 
 ```bash
 conda env create -f dependencies.yml
@@ -36,7 +39,14 @@ ou
 ```bash
 source conda activate ./speedio
 ```
-- Crie uma pasta com o nome 'data' e insira os dados da receita federal (descompactados)
+#### Para usuários que contenham apenas o python
+- Instale as seguinte dependências com o comando pip:
+```bash
+pip install pandas
+pip install pymongo
+pip install openpyxl
+```
+
 - por último, para executar, basta digitar o comando abaixo
 ```bash
 python main.py
