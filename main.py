@@ -67,12 +67,19 @@ pipe = Pipeline([
     ('convertendo para formato dataframe',transform.convert_business_result_in_dataframe),   
 ])
 
-pipe.fit_transform(db)
+number_of_restaurants_opened_by_year = pipe.fit_transform(db)
 
 
 # quarta questão letra 'c'
 
-length_of_business_around = io.get_numbers_of_business_by_radius(API_KEY)
+
+pipe = Pipeline([
+    ('obtendo número de negócios em um raio de 5km',io.get_numbers_of_business_by_radius),
+    ('convertendo para serie',transform.convert_nof_business_in_serie),   
+])
+
+
+length_of_business_around =  pipe.fit_transform(API_KEY)
 
 # quarta questão letra 'd'
 
@@ -91,8 +98,20 @@ from pandas import DataFrame as dataframe
 from pandas import Series as series
 
 
+
+
+was_exported = io.export_answers_to_excel({
+    'quarta questão letra a' : percentage,
+    'quarta questão letra b' : number_of_restaurants_opened_by_year,
+    'quarta questão letra c' : length_of_business_around,
+    'quarta questão letra d' : correlations_between_cnaes,
+}, output_name = "answers")
+
+if was_exported:
+    print('[log] programa finalizado com sucesso, o resultado pode ser visto na pasta exports')
+
 # não precisava
-is_exported = io.export_mongo_data_to_excel(db)
+#is_exported = io.export_mongo_data_to_excel(db, output_name = 'all_data_in_db')
 
 # https://exceptionshub.com/python-append-dataframe-to-excel-with-pandas.html
 

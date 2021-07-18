@@ -5,6 +5,8 @@ import requests
 import requests
 import csv
 import time
+from pandas import ExcelWriter
+import os
 def get_collection_of_mongo_db(database_name, collection_name):
     # CONNECTION_STRING = "mongodb+srv://<username>:<password>@<cluster-name>.mongodb.net/myFirstDatabase"
     client = MongoClient()
@@ -74,6 +76,8 @@ def get_restaurant_opened_by_year(db):
         pass
     return lof_opened_business
 
+
+@pipeline.pipe_function
 def get_numbers_of_business_by_radius(api_key):
     
     # Obtido no Google Maps
@@ -126,12 +130,12 @@ def get_numbers_of_business_by_radius(api_key):
     length_of_business_around = len(result_content)
     return length_of_business_around
 
-def export_mongo_data_to_excel(db):
+def export_mongo_data_to_excel(db, output_name):
     columns_lbl = db.find_one().keys()
     db_all = db.find({})
     try:
         
-        with open('output.xls', 'w', newline='') as xlsfile:
+        with open(os.path.join('exports',f'{output_name}.xlsx'), 'w', newline='') as xlsfile:
             spamwriter = csv.writer(xlsfile, dialect = 'excel')
             spamwriter.writerow(columns_lbl)
             
@@ -145,3 +149,15 @@ def export_mongo_data_to_excel(db):
     except:
         return False
     
+
+def export_answers_to_excel(data : dict,output_name : str):
+    try:
+        with ExcelWriter(os.path.join('exports',f'{output_name}.xlsx'),engine = 'openpyxl', mode = 'w') as writer:
+            for sheet_name, answer in data.items():
+                answer.to_excel(writer,sheet_name = sheet_name)
+                pass
+            pass
+        return True
+    except:
+        return False
+

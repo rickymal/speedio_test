@@ -127,6 +127,9 @@ def all_cnae_creator(chunk : list[dict]):
 def convert_percentage_to_series(data):
     return series({'porcentagem das empresas ativas atualmente' : data})
 
+@pipeline.pipe_function
+def convert_nof_business_in_serie(data):
+    return series({'número de negócios em um raio de 5km' : data})
 
 @pipeline.pipe_function
 def filter_data(chunk : list[dict]):
