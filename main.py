@@ -4,13 +4,11 @@ Created on Wed Jul 14 12:18:56 2021
 
 @author: Henrique Mauler
 """
-import os
 from sklearn.pipeline import Pipeline
 
-from services import io_service as io
+from services import io_service as io 
 from services import transform_service  as transform
 from services import check_type_service as check_type
-
 
 from constants import PATH
 from constants import COLLECTION_NAME
@@ -20,12 +18,16 @@ from constants import BATCH_SIZE
 from constants import LIMIT_OF_DOCUMENT_TO_LOAD
 
 
-
-
 # Obtém ou cria uma coleção no db definido como 'speedio'
 # A varivável 'db' representa a coleção
 db = io.get_collection_of_mongo_db(database_name = DATABASE_NAME,collection_name = COLLECTION_NAME)
-db.delete_many({}) # para testes
+# db.delete_many({}) # para testes
+db.drop() # para testes
+if db.drop():
+    print('coleção apagada')
+else:
+    pass # coleção inexistente
+
 
 # pipeline de transformação
 pipe = Pipeline([
