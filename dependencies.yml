@@ -1,0 +1,9 @@
+name: speedio
+channels:
+  - defaults
+dependencies:
+  - numpy
+  - pandas
+  - pymongo
+  - openpyxl
+prefix: C:\Anaconda3\envs\speedio
