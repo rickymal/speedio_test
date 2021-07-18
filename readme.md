@@ -16,7 +16,11 @@ A instalação desta ferramenta assim como instruções pode ser feita aqui: [Si
 ```bash
 git clone https://github.com/rickymal/speedio_test.git
 ```
-- em seguida será necessário criar o ambiente. Digite o seguinte comando para ambiente windows 
+- em seguida digite
+```bash
+cd speedio_test
+```
+- Será necessário criar o ambiente. Digite o seguinte comando para ambiente windows 
 ```bash
 conda env create -f dependencies.yml
 ```
