@@ -17,24 +17,34 @@ A instalação desta ferramenta assim como instruções pode ser feita aqui: [Si
 git clone https://github.com/rickymal/speedio_test.git
 ```
 
-# em seguida será necessário criar o ambiente. Digite o seguinte comando para ambiente windows 
+- em seguida será necessário criar o ambiente. Digite o seguinte comando para ambiente windows 
 
 ```bash
 conda env create -f dependencies.yml
 ```
 
-# ou em sistemas Unix
+- ou em sistemas Unix
+```bash
 $ source conda env create -f dependencies.yml
+```
 
-# agora você deve ativar o ambiente
+- agora você deve ativar o ambiente
+```bash
 $ conda activate speedio
+```
 
-# ou em sistemas Unix
+- ou em sistemas Unix
+```bash
 $ source conda activate ./speedio
+```
 
-# por último, para executar, basta digitar o comando abaixo
+- por último, para executar, basta digitar o comando abaixo
+```bash
 $ python main.py
+```
 
-# ou em sistemas Unix
+- ou em sistemas Unix
+```
 # ./main.py
+```
 
