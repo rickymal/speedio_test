@@ -8,6 +8,8 @@ A instalação desta ferramenta assim como instruções pode ser feita aqui: [Si
 
 - Também é necessário ter o git instalado em teu computador.
 
+
+### Instalando e utilizando
 ```bash
 # crie uma pasta para o download do projeto
 # após a pasta ter sido criada, com o prompt de comando ou terminal na paste, digite o seguinte comando
