@@ -44,7 +44,10 @@ source conda activate ./speedio
 ```bash
 pip install pandas pymongo openpyxl
 ```
+- O script foi testado com o python na versão 3.9.5
 
+
+### Executando
 - por último, para executar, basta digitar o comando abaixo
 ```bash
 python main.py
