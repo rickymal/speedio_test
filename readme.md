@@ -32,6 +32,7 @@ ou
 ```bash
 source conda activate ./speedio
 ```
+- Crie uma pastas com o nome 'data' e insira os dados da receita federal
 - por último, para executar, basta digitar o comando abaixo
 ```bash
 python main.py
