@@ -2,7 +2,7 @@
 """
 @author: Henrique Mauler
 """
-
+import os
 from sklearn.pipeline import Pipeline
 
 from services import io_service as io
@@ -15,6 +15,7 @@ from constants import API_KEY
 from constants import BATCH_SIZE
 from constants import LIMIT_OF_DOCUMENT_TO_LOAD
 from constants import FOLDER
+from constants import EXPORTS
 
 
 
@@ -29,6 +30,15 @@ if db.drop():
     log("Apagando coleção atual")
 else:
     pass  # coleção inexistente
+
+
+
+if not os.path.exists(FOLDER):
+    os.makedirs(FOLDER)
+
+
+if not os.path.exists(EXPORTS):
+    os.makedirs(EXPORTS)
 
 
 # pipeline de transformação

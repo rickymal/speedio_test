@@ -2,6 +2,7 @@ name: speedio
 channels:
   - defaults
 dependencies:
+  - python=3.9.5
   - numpy
   - pandas
   - pymongo
