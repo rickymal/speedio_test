@@ -42,9 +42,7 @@ source conda activate ./speedio
 #### Para usuários que contenham apenas o python
 - Instale as seguinte dependências com o comando pip:
 ```bash
-pip install pandas
-pip install pymongo
-pip install openpyxl
+pip install pandas pymongo openpyxl
 ```
 
 - por último, para executar, basta digitar o comando abaixo
