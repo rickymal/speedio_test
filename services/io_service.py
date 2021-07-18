@@ -7,38 +7,62 @@ import csv
 import time
 from pandas import ExcelWriter
 import os
+import sys
+
+# print
 def get_collection_of_mongo_db(database_name, collection_name):
     # CONNECTION_STRING = "mongodb+srv://<username>:<password>@<cluster-name>.mongodb.net/myFirstDatabase"
     client = MongoClient()
     return client[database_name][collection_name]
 
 def load_local_data(folder,batch_size : int = 10000, limit : int = None):
-    
+
+
     append_limit = 0
-    for data_as_csv in os.listdir(folder):
-        with open(os.path.join(folder,data_as_csv),'r') as file:
-            try:
-                raw_chunk = list()
-                for ind, raw_document in enumerate(file,start = 1):
+    
+    for data_as_csv_name in os.listdir(folder):
+        # print('abrindo arquivo:',data_as_csv_name)
+        with open(os.path.join(folder,data_as_csv_name),'r') as file:
+            raw_chunk = list()
+            ind = 0
+
+            iter_ = iter(enumerate(file,start = 1))
+            while True:
+                try:
+                    ind, raw_document = next(iter_)  
 
                     if limit is not None and (ind + append_limit) >= limit:
                         break
 
                     raw_chunk.append(raw_document)
+
+                    # aqui deveria ser indice + append_limit para retornar sempre o batch no mesmo tamanho, mas isto não interfere no programa
                     if (ind % batch_size) == 0:
                         yield raw_chunk
                         raw_chunk = list()
-                        
-                        
-                if len(raw_chunk) > 0:
-                    yield raw_chunk 
+                
+                except Exception as ext:
+                    exc_type, _, _ = sys.exc_info()
 
-                # OBS: incrementado mesmo após o número de documento passar do limite, mas não tem problema pois quando isso acontece o loop é desfeito
-                append_limit += ind 
-            except IOError:
-                print("[ERROR]",IOError.message)
-                raise IOError("Error")
+                    if exc_type.__name__ == 'StopIteration':
+                        # não há mais linhas para lerem lidas no arquivo
+                        break
+                    elif exc_type.__name__ == 'UnicodeDecodeError':
+                        # alguns dados não são lidos por um erro de 'codec', byte 8f não reconhecido, pode ser algum encoding errado
+                        # ignorado
+                        continue
+                    else:
+                        raise
+                    pass
                 pass
+            if len(raw_chunk) > 0:
+                yield raw_chunk
+
+            append_limit += ind
+            break
+        
+
+            
             pass
         pass
     return
@@ -54,10 +78,15 @@ def get_percentage_of_active_business(db):
     
     all_occurrences = db.count_documents({})
     
+    if all_occurrences == 0:
+        return 0.0
+
     # obtendo as ocorrências com situação cadastral 02
     actives = db.count_documents({'situação cadastral' : "02"})
+
     percentage = (actives * 100 / all_occurrences)
-    print(f'percentage: {percentage:2f} %' )    
+
+    # print(f'percentage: {percentage:2f} %' )    
     return percentage
 
 

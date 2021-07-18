@@ -15,7 +15,7 @@ import sys
 sys.path.append('..')
 from constants import COLUMNS_LABEL
 
-
+# print
 @pipeline.pipe_function  
 def csv_to_dict_converter(chunk : list[str],):
     
@@ -171,9 +171,9 @@ def get_grouping(db):
         },
     ])
 
+    # operação bloqueante (resolver se tiver tempo: trabalhar em lotes)
     lof = []
     for r in for_grouping:
-        print(r)
         lof.append(r)
     return lof
 
