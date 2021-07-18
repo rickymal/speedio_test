@@ -10,11 +10,12 @@ A instalação desta ferramenta assim como instruções pode ser feita aqui: [Si
 
 
 ### Instalando e utilizando
-```bash
+
 # crie uma pasta para o download do projeto
 # após a pasta ter sido criada, com o prompt de comando ou terminal na paste, digite o seguinte comando
-$ git clone https://github.com/rickymal/speedio_test.git
-
+```bash
+git clone https://github.com/rickymal/speedio_test.git
+```
 # em seguida será necessário criar o ambiente. Digite o seguinte comando para ambiente windows 
 $ conda env create -f dependencies.yml
 
