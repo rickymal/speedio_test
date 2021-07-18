@@ -12,26 +12,35 @@ def get_collection_of_mongo_db(database_name, collection_name):
     client = MongoClient()
     return client[database_name][collection_name]
 
-def load_local_data(path,batch_size : int = 10000, limit : int = None):
-    PATH = path
-    with open(PATH,'r') as file:
-        try:
-            raw_chunk = list()
-            for ind, raw_document in enumerate(file,start = 1):
-                raw_chunk.append(raw_document)
-                if (ind % batch_size) == 0:
-                    yield raw_chunk
-                    raw_chunk = list()
-                    
-                    
-                if limit is not None and ind > limit:
-                    break
-            if len(raw_chunk) > 0:
-                yield raw_chunk
-                return 
-        except IOError:
-            print("[ERROR]",IOError.message)
-            raise IOError("Error")
+def load_local_data(folder,batch_size : int = 10000, limit : int = None):
+    
+    append_limit = 0
+    for data_as_csv in os.listdir(folder):
+        with open(os.path.join(folder,data_as_csv),'r') as file:
+            try:
+                raw_chunk = list()
+                for ind, raw_document in enumerate(file,start = 1):
+
+                    if limit is not None and (ind + append_limit) >= limit:
+                        break
+
+                    raw_chunk.append(raw_document)
+                    if (ind % batch_size) == 0:
+                        yield raw_chunk
+                        raw_chunk = list()
+                        
+                        
+                if len(raw_chunk) > 0:
+                    yield raw_chunk 
+
+                # OBS: incrementado mesmo após o número de documento passar do limite, mas não tem problema pois quando isso acontece o loop é desfeito
+                append_limit += ind 
+            except IOError:
+                print("[ERROR]",IOError.message)
+                raise IOError("Error")
+                pass
+            pass
+        pass
     return
 
 def send_to_db(chunk : list[dict], db):

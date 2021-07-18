@@ -16,6 +16,7 @@ from constants import DATABASE_NAME
 from constants import API_KEY
 from constants import BATCH_SIZE
 from constants import LIMIT_OF_DOCUMENT_TO_LOAD
+from constants import FOLDER
 
 
 # Obtém ou cria uma coleção no db definido como 'speedio'
@@ -46,10 +47,10 @@ pipe = Pipeline([
 
 # 'chunk' é equivalente ao 'batch size'
 # em loop: extração dos dados -> processamento (pipeline) -> envio ao banco de dados
-for i,chunk in enumerate(io.load_local_data(path = PATH ,batch_size= BATCH_SIZE, limit = LIMIT_OF_DOCUMENT_TO_LOAD), start = 1): # primeira etapa
+for i,chunk in enumerate(io.load_local_data(folder = FOLDER ,batch_size= BATCH_SIZE, limit = LIMIT_OF_DOCUMENT_TO_LOAD), start = 1): # primeira etapa
     data_formated = pipe.fit_transform(chunk) #segunda etapa
     io.send_to_db(data_formated,db)  # terceira etapa
-    print('enviando chunk',i,'para o banco',)
+    print('enviando chunk',i,'de aproximadamente','608')
     
 
 # quarta questão letra 'a'

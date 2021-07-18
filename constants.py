@@ -39,4 +39,5 @@ COLLECTION_NAME = 'receita federal db'
 DATABASE_NAME = 'speedio'
 API_KEY = "AIzaSyC-14F94fZv_zJVE53S6xXaM15TIEFwi1g" # configurada para um limite específico de requisições
 BATCH_SIZE = 1000
-LIMIT_OF_DOCUMENT_TO_LOAD = 10000
+LIMIT_OF_DOCUMENT_TO_LOAD = None
+FOLDER = 'data'
