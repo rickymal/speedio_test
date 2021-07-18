@@ -10,7 +10,7 @@ from services import io_service as io
 from services import transform_service  as transform
 from services import check_type_service as check_type
 
-from constants import PATH
+
 from constants import COLLECTION_NAME
 from constants import DATABASE_NAME
 from constants import API_KEY
@@ -18,12 +18,13 @@ from constants import BATCH_SIZE
 from constants import LIMIT_OF_DOCUMENT_TO_LOAD
 from constants import FOLDER
 
+# https://stackoverflow.com/questions/53723783/pandas-merge-data-frame-but-summing-overlapping-columns
 
 # Obtém ou cria uma coleção no db definido como 'speedio'
 # A varivável 'db' representa a coleção
 db = io.get_collection_of_mongo_db(database_name = DATABASE_NAME,collection_name = COLLECTION_NAME)
 # db.delete_many({}) # para testes
-db.drop() # para testes
+
 if db.drop():
     print('coleção apagada')
 else:
