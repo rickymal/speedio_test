@@ -4,7 +4,7 @@
 
 ### Pré-requisito
 - Para o uso da ferramenta, é preferível ter instalado em seu computador e configurado na variável de ambiente a plataforma Anaconda ou miniconda.
-A instalação desta ferramenta assim como instruções pode ser feita aqui: [Site oficial do anaconda](https://www.anaconda.com/products/individual). Caso não queira instalar o Anaconda, apenas instale o Python e as seguintes bibliotecas: pymongo, pandas, openpyxl. A versão Python testada foi a 3.9.5
+A instalação desta ferramenta assim como instruções pode ser feita aqui: [Site oficial do anaconda](https://www.anaconda.com/products/individual) ou [miniconda](https://docs.conda.io/en/latest/miniconda.html). Caso não queira instalar o Anaconda ou miniconda, você pode utilizar o gerenciador de pacotes integrado do python sem problemas.
 
 - Também é necessário ter o git instalado em teu computador.
 
