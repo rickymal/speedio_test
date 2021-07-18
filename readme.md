@@ -25,26 +25,26 @@ conda env create -f dependencies.yml
 
 - ou em sistemas Unix
 ```bash
-$ source conda env create -f dependencies.yml
+source conda env create -f dependencies.yml
 ```
 
 - agora você deve ativar o ambiente
 ```bash
-$ conda activate speedio
+conda activate speedio
 ```
 
 - ou em sistemas Unix
 ```bash
-$ source conda activate ./speedio
+source conda activate ./speedio
 ```
 
 - por último, para executar, basta digitar o comando abaixo
 ```bash
-$ python main.py
+python main.py
 ```
 
 - ou em sistemas Unix
 ```
-# ./main.py
+./main.py
 ```
 
