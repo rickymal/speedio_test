@@ -21,7 +21,6 @@ git clone https://github.com/rickymal/speedio_test.git
 cd speedio_test
 ```
 - Crie uma pasta com o nome 'data' e insira os dados da receita federal (descompactados)
-- 
 #### Apenas para os usuários do Anaconda e miniconda
 - Será necessário criar o ambiente. Digite o seguinte comando para ambiente windows 
 ```bash
