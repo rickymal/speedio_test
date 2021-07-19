@@ -26,7 +26,7 @@ cd speedio_test
 ```bash
 conda env create -f dependencies.yml
 ```
-ou
+ou derivados do Unix
 ```bash
 source conda env create -f dependencies.yml
 ```
@@ -34,7 +34,7 @@ source conda env create -f dependencies.yml
 ```bash
 conda activate speedio
 ```
-ou
+ou derivados do Unix
 ```bash
 source conda activate ./speedio
 ```
@@ -51,7 +51,7 @@ pip install pandas pymongo openpyxl
 ```bash
 python main.py
 ```
-ou
+ou derivados do Unix
 ```
 ./main.py
 ```
