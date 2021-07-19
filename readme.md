@@ -4,13 +4,15 @@
 
 ### Pré-requisito
 - Para o uso da ferramenta, é preferível ter instalado em teu computador e configurado na variável de ambiente a plataforma Anaconda ou Miniconda.
-A instalação desta ferramenta assim como instruções pode ser feita aqui: [Página de download do Anaconda](https://www.anaconda.com/products/individual) ou [Página de download do Miniconda](https://docs.conda.io/en/latest/miniconda.html). Caso não queira instalar o Anaconda ou miniconda, você pode utilizar o gerenciador de pacotes integrado do python sem problemas.
+A instalação desta ferramenta assim como instruções pode ser feita aqui: [Página de download do Anaconda](https://www.anaconda.com/products/individual) ou [Página de download do Miniconda](https://docs.conda.io/en/latest/miniconda.html). Caso não queira instalar o Anaconda ou Miniconda, você pode utilizar o gerenciador de pacotes integrado do python sem problema.
 
-- Também é necessário ter o git instalado em teu computador.
+- É necessário ter o git instalado em teu computador.
 
-Observação: os comandos para sistemas Linux e MacOS não foram testados
+- É necessário tem o Mongodb instalado no computador
 
-### Instalando e utilizando
+**Observação: os comandos para sistemas Linux e MacOS não foram testados**
+
+### Instalando
 
 - crie uma pasta para o download do projeto por uma questão de organização (opcional)
 - após a pasta ter sido criada, com o prompt de comando ou terminal na pasta, digite o seguinte comando
@@ -22,7 +24,7 @@ git clone https://github.com/rickymal/speedio_test.git
 cd speedio_test
 ```
 - Crie uma pasta com o nome 'data' e insira os dados da receita federal (descompactados)
-#### Apenas para os usuários do Anaconda e miniconda
+#### Apenas para os usuários do Anaconda e Miniconda
 - Será necessário criar o ambiente. Digite o seguinte comando para ambiente windows 
 ```bash
 conda env create -f dependencies.yml
