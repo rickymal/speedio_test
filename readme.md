@@ -3,7 +3,7 @@
 ## Manual de uso
 
 ### Pré-requisito
-- Para o uso da ferramenta, é preferível ter instalado em teu computador e configurado na variável de ambiente a plataforma Anaconda ou miniconda.
+- Para o uso da ferramenta, é preferível ter instalado em teu computador e configurado na variável de ambiente a plataforma Anaconda ou Miniconda.
 A instalação desta ferramenta assim como instruções pode ser feita aqui: [Página de download do Anaconda](https://www.anaconda.com/products/individual) ou [Página de download do Miniconda](https://docs.conda.io/en/latest/miniconda.html). Caso não queira instalar o Anaconda ou miniconda, você pode utilizar o gerenciador de pacotes integrado do python sem problemas.
 
 - Também é necessário ter o git instalado em teu computador.
