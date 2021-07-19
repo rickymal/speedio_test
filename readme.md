@@ -8,6 +8,7 @@ A instalação desta ferramenta assim como instruções pode ser feita aqui: [Si
 
 - Também é necessário ter o git instalado em teu computador.
 
+Observação: os comandos para sistemas Linux e MacOS não foram testados
 
 ### Instalando e utilizando
 
@@ -56,5 +57,5 @@ ou derivados do Unix
 ./main.py
 ```
 
-Observação: os comandos para sistemas Linux e MacOS não foram testados
+
 
